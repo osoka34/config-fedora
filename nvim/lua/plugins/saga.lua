@@ -1,0 +1,33 @@
+return {
+	-- "nvimdev/lspsaga.nvim",
+	-- config = function()
+	--     require("lspsaga").setup({})
+	-- end,
+	-- dependencies = {
+	--     "nvim-treesitter/nvim-treesitter", -- optional
+	--     "nvim-tree/nvim-web-devicons", -- optional
+	-- },
+	-- event = "LspAttach",
+	-- opts = {
+	--     ui = {
+	--         border = "single",
+	--     },
+	--     symbol_in_winbar = {
+	--         enable = false,
+	--     },
+	--     lightbulb = {
+	--         enable = false,
+	--     },
+	--     finder = {
+	--         keys = {
+	--             toggle_or_open = "<CR>",
+	--             quit = { "q", "<ESC>" },
+	--         },
+	--     },
+	--     rename = {
+	--         keys = {
+	--             quit = "<ESC>",
+	--         },
+	--     },
+	-- },
+}
