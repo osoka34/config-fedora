@@ -40,8 +40,9 @@ return {
         })
 
         -- Привязки клавиш для управления буферами
-        vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
-        vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>.", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>,", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
         vim.keymap.set("n", "<leader>bd", "<cmd>BufferLinePickClose<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true })
     end,
 }

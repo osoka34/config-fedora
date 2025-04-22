@@ -26,12 +26,12 @@ return {
 				ensure_installed = {
 					"lua_ls", -- Lua
 					-- "ast_grep",    -- Go + Python
-					"bufls", -- Protobuf
+					-- "bufls", -- Protobuf
 					"gopls", -- Go
-					"jsonls", -- JSON
+					-- "jsonls", -- JSON
 					-- "pbls",        -- Protobuf
 					-- "pyright",     -- Python
-					"ruff", -- python
+					-- "ruff", -- python
 				},
 				automatic_installation = true, -- Автоматическая установка серверов
 			})
@@ -82,15 +82,18 @@ return {
 			vim.keymap.set("n", "gr", function()
 				require("telescope.builtin").lsp_references({})
 			end)
+			vim.keymap.set("n", "<leader>d", function()
+				vim.diagnostic.open_float()
+			end, { noremap = true, silent = true })
 
 			-- vim.keymap.set("n", "<leader>rn", "<Cmd>Lspsaga rename<CR>", { noremap = true, silent = true })
 			-- vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", { noremap = true, silent = true })
 			-- vim.keymap.set("n", "gi", "<Cmd>Lspsaga finder imp<CR>", { noremap = true, silent = true })
 			-- vim.keymap.set(
 			--     { "n", "v" },
-			--     "<leader>ca",
+			-- "<leader>ca",
 			--     "<Cmd>Lspsaga code_action<CR>",
-			--     { noremap = true, silent = true }
+			-- { noremap = true, silent = true }
 			-- )
 			-- vim.keymap.set("n", "<leader>o", "<Cmd>Lspsaga outline<CR>", { noremap = true, silent = true })
 			-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga finder ref+def+imp<CR>", { noremap = true, silent = true })
@@ -148,11 +151,11 @@ return {
 			})
 
 			-- Setup Ruff Linter
-			lspconfig.ruff.setup({
-				init_options = {
-					settings = {},
-				},
-			})
+			-- lspconfig.ruff.setup({
+			-- 	init_options = {
+			-- 		settings = {},
+			-- 	},
+			-- })
 		end,
 	},
 }
