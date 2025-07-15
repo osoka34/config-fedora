@@ -6,7 +6,7 @@ return {
         name = "tokyonight",
         priority = 1000, -- Загружается раньше других плагинов
         config = function()
-            transparent = true
+            local transparent = true
             require("tokyonight").setup({
                 style = "night", -- Доступные стили: "storm", "night", "moon"
                 transparent = transparent, -- Если нужен прозрачный фон, установите true
@@ -14,7 +14,10 @@ return {
                     sidebars = transparent and "transparent" or "dark",
                     floats = transparent and "transparent" or "dark",
                 },
-                terminal_colors = true, -- Включить поддержку цветов в терминале
+                terminal_colors = true,             -- Включить поддержку цветов в терминале
+                on_highlights = function(hl, c)
+                    hl.Comment = { fg = "#7ec07c", italic = true } -- Можно c.green, можно "#9ece6a", можно свой
+                end,
             })
             vim.cmd.colorscheme("tokyonight")
         end,
