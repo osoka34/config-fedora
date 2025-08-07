@@ -14,3 +14,6 @@ vim.opt.number = true
 
 -- Привязка Option + Backspace для удаления по словам в режиме вставки
 -- vim.api.nvim_set_keymap('i', '<A-BS>', '<C-W>', { noremap = true, silent = true })
+--
+--
+vim.cmd("colorscheme tokyonight")

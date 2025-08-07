@@ -1,7 +1,7 @@
 return {
     -- mason.nvim
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         config = function()
             require("mason").setup()
         end,
@@ -12,13 +12,19 @@ return {
         config = function()
             require("nvim-navic").setup({
                 highlight = true, -- Подсветка текущего контекста
+                click = true, -- Включаем кликабельность
+                lsp = {
+                    auto_attach = true, -- Автоматическое подключение к LSP
+                },
             })
         end,
     },
     -- mason-lspconfig.nvim
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
             "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
         config = function()
@@ -38,10 +44,10 @@ return {
                     "gotests",
                     "stylua",
                     "gofumpt",
-                    "golines",
-                    "ruff",
+                    -- "golines",
+                    -- "ruff",
                     -- "phpactor",
-                    "intelephense",
+                    -- "intelephense",
                 },
                 automatic_installation = true,
             })
@@ -52,6 +58,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { -- Добавляем Telescope как зависимость
             "nvim-telescope/telescope.nvim",
+            "SmiteshP/nvim-navic",
         },
         config = function()
             local lspconfig = require("lspconfig")
@@ -85,7 +92,7 @@ return {
             lspconfig.lua_ls.setup({
                 filetypes = { "lua" }, -- поддерживаемые типы файлов
                 -- Можно добавить настройки для lua_ls здесь
-                -- on_attach = on_attach,
+                on_attach = on_attach,
             })
 
             -- Настройка gopls (для Go)
@@ -104,25 +111,25 @@ return {
                         staticcheck = true,
                     },
                 },
-                -- on_attach = on_attach,
+                on_attach = on_attach,
             })
 
-            lspconfig.intelephense.setup({
-                cmd = { "intelephense" },
-                filetypes = { "php" },
-                root_dir = require("lspconfig").util.root_pattern("composer.json", ".git"),
-                settings = {
-                    intelephense = {
-                        -- Настройки для intelephense
-                        files = {
-                            associations = { "*.php" },
-                        },
-                        format = {
-                            enable = true,
-                        },
-                    },
-                },
-            })
+            -- lspconfig.intelephense.setup({
+            --     cmd = { "intelephense" },
+            --     filetypes = { "php" },
+            --     root_dir = require("lspconfig").util.root_pattern("composer.json", ".git"),
+            --     settings = {
+            --         intelephense = {
+            --             -- Настройки для intelephense
+            --             files = {
+            --                 associations = { "*.php" },
+            --             },
+            --             format = {
+            --                 enable = true,
+            --             },
+            --         },
+            --     },
+            -- })
         end,
     },
 }
