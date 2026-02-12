@@ -1,5 +1,3 @@
--- catppuccin.lua
-
 return {
 	{
 		"folke/tokyonight.nvim",
@@ -28,8 +26,8 @@ return {
 		config = function()
 			require("catppuccin").setup({
 				style = "dark", -- Доступные стили: "dark", "light"
-				transparent_background = true, -- Если нужен прозрачный фон, установите true
-				transparency = true, -- Если нужен прозрачный фон, установите true
+				transparent_background = false, -- Если нужен прозрачный фон, установите true
+				transparency = false, -- Если нужен прозрачный фон, установите true
 				term_colors = true, -- Включить поддержку цветов в терминале
 				custom_highlights = function(colors)
 					return {
@@ -46,24 +44,25 @@ return {
 			local transparency = false
 			-- Default options:
 			require("gruvbox").setup({
-				terminal_colors = true, -- add neovim terminal colors
-				undercurl = true,
-				underline = true,
-				bold = true,
-				italic = {
-					strings = true,
-					emphasis = true,
-					comments = true,
-					operators = false,
-					folds = true,
-				},
-				strikethrough = true,
-				invert_selection = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				contrast = "soft", -- can be "hard", "soft" or empty string
+
+				-- terminal_colors = true, -- add neovim terminal colors
+				-- undercurl = true,
+				-- underline = true,
+				-- bold = true,
+				-- italic = {
+				-- 	strings = true,
+				-- 	emphasis = true,
+				-- 	comments = true,
+				-- 	operators = false,
+				-- 	folds = true,
+				-- },
+				-- strikethrough = true,
+				-- invert_selection = false,
+				-- invert_signs = false,
+				-- invert_tabline = false,
+				-- invert_intend_guides = false,
+				-- inverse = true, -- invert background for search, diffs, statuslines and errors
+				-- contrast = "soft", -- can be "hard", "soft" or empty string
 				palette_overrides = {
 					-- bright_red = "#d79921", -- dark orange
 					bright_red = "#fabd2f", -- light yellow
@@ -71,12 +70,17 @@ return {
 					yellow = "#ffcc00",
 				},
 				overrides = {
-					-- Function = { fg = "#b8bb26" },
-					-- Identifier = { fg = "#fabd2f" },
+					Function = { fg = "#b8bb26" },
+					Identifier = { fg = "#fabd2f" },
+					-- CursorLine = { bg = "NONE" },
+					-- CursorColumn = { bg = "NONE" },
 				},
-				dim_inactive = false,
+				-- dim_inactive = false,
 				transparent_mode = transparency,
 			})
+
+			vim.cmd("highlight CursorLine guibg=NONE ctermbg=NONE")
+			vim.cmd("highlight CursorColumn guibg=NONE ctermbg=NONE")
 		end,
 	},
 }

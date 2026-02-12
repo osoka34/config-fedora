@@ -16,4 +16,4 @@ vim.opt.number = true
 -- vim.api.nvim_set_keymap('i', '<A-BS>', '<C-W>', { noremap = true, silent = true })
 --
 --
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme catppuccin")
