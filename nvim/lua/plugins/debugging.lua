@@ -24,5 +24,16 @@ return {
 		end
 		vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
 		vim.keymap.set("n", "<leader>dc", dap.continue, {})
+		vim.keymap.set("n", "<leader>do", dap.step_over, {})
+		vim.keymap.set("n", "<leader>di", dap.step_into, {})
+		vim.keymap.set("n", "<leader>du", dap.step_out, {})
+		vim.keymap.set("n", "<leader>de", dap.terminate, {})
+		-- vim.keymap.set("n", "<leader>dx", dapui.toggle, {})
+		-- vim.keymap.set("n", "<leader>dr", function()
+		-- 	require("dap").terminate()
+		-- 	vim.defer_fn(function()
+		-- 		require("dap").run()
+		-- 	end, 500)
+		-- end, {})
 	end,
 }
